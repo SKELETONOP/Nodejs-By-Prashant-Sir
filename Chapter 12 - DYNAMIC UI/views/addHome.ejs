@@ -1,0 +1,74 @@
+<%- include('partials/head') %>
+</head>
+<body class="bg-gray-50 font-sans">
+  <%- include('partials/nav') %>
+
+  <main class="flex justify-center pt-4">
+    <div class="bg-white shadow-xl rounded-lg p-8 w-full max-w-md">
+      <form action="/host/add-home" method="POST" class="space-y-4">
+        <div>
+          <label for="houseName" class="block text-center text-3xl font-medium text-gray-700">Register Your Home</label>
+          
+          <input
+            type="text"
+            id="ownerName"
+            name="ownerName"
+            placeholder="Enter your name"
+            class="mt-4 block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+            required
+          />
+          <input
+            type="text"
+            id="houseName"
+            name="houseName"
+            placeholder="Enter the name of your house"
+            class="mt-2 block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+            required
+          />
+          <input
+            type="text"
+            id="priceperNight"
+            name="priceperNight"
+            placeholder="Enter the price per night"
+            class="mt-2 block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+            required
+          />
+          <select name="location" id="location" class="mt-2 block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500" required>
+            <option value="">Select Location</option>
+            <option value="Jaipur">Jaipur</option>
+            <option value="Goa">Goa</option>
+            <option value="Himalayas">Himalayas</option>
+          </select>
+          <input
+            type="number"
+            id="rating"
+            name="rating"
+            placeholder="Enter the rating (1-5)"
+            class="mt-2 block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+            min="1"
+            max="5"
+            required
+          />
+          <input
+            type="text"
+            id="imgUrl"
+            name="imgUrl"
+            placeholder="Enter the image URL"
+            class="mt-2 block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+            required
+          />
+        </div>
+
+        <div>
+          <button
+            type="submit"
+            class="w-full py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-300 transition duration-300 ease-in-out"
+          >
+            Add Home
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

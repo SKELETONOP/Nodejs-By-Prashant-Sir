@@ -1,0 +1,63 @@
+<%- include('../partials/head') %>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+  <!-- Header Partial -->
+  <%- include('../partials/nav') %>
+
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-6 py-8">
+    <!-- Single selectedHome Section -->
+    <section class="bg-white shadow-lg rounded-lg overflow-hidden">
+      <!-- Image -->
+      <div class="relative">
+        <img src="<%= selectedHome.imgUrl || 'https://via.placeholder.com/1200x600?text=No+Image' %>" alt="<%= selectedHome.houseName %>" class="w-full h-72 object-cover">
+        <div class="absolute bottom-4 left-4 bg-opacity-50 bg-black text-white px-4 py-2 rounded-md text-xl font-semibold">
+          <%= selectedHome.houseName %>
+        </div>
+      </div>
+
+      <!-- selectedHome Details -->
+      <div class="p-6 space-y-4">
+        <div class="flex items-center space-x-4">
+          <div class="text-lg font-medium">Owner:</div>
+          <div class="text-lg text-gray-600"><%= selectedHome.ownerName %></div>
+        </div>
+
+        <div class="flex items-center space-x-4">
+          <div class="text-lg font-medium">Price per Night:</div>
+          <div class="text-lg text-green-600">₹<%= selectedHome.priceperNight %></div>
+        </div>
+
+        <div class="flex items-center space-x-4">
+          <div class="text-lg font-medium">Location:</div>
+          <div class="text-lg text-gray-600"><%= selectedHome.location %></div>
+        </div>
+
+        <div class="flex items-center space-x-4">
+          <div class="text-lg font-medium">Rating:</div>
+          <div class="text-lg text-yellow-500 flex items-center">
+            <span><%= selectedHome.rating %></span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-500 ml-2" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M10 15l-3.12 1.64.56-3.27L5 9.97l3.27-.47L10 6l1.73 3.5L15 9.97l-2.44 3.4.56 3.27L10 15z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          
+        </div>
+        <div class="btn">
+        <a href="/" class="bg-blue-500 text-white px-4 py-2 rounded-md">Back to Homes</a>
+        <a href="/bookings" class="bg-green-500 text-white px-4 py-2 rounded-md">Book Now</a>
+        </div>
+        <!-- Back Button -->
+        
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <%- include('../partials/footer') %>
+
+</body>
+</html>

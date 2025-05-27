@@ -1,0 +1,13 @@
+User Input:
+Username: nareshgouttam
+Email: nareshgouttam@gmail.com
+Gender: male
+
+Username: anju sharma
+Email: anjusharmaa257@gmail.com
+Gender: female
+
+Username: Kamal Kishor Joshi
+Email: Kamaljoshi257@gmail.com
+Gender: male
+

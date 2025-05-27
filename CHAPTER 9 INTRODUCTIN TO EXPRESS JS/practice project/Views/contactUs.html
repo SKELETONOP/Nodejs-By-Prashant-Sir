@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Purple Love</title>
+    <style>
+        /* Basic Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #800080;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        /* Contact Section Styles */
+        .contact-section {
+            padding: 40px 0;
+            background-color: #fff;
+        }
+
+        .contact-section h2 {
+            text-align: center;
+            color: #800080;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-section p {
+            text-align: center;
+            font-size: 1rem;
+            margin-bottom: 40px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .contact-form label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        .contact-form button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #800080;
+            color: white;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #fff;
+            border: 2px solid #800080;
+            color:#800080;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #800080;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Purple Love - Contact Us</h1>
+        </div>
+    </header>
+    
+    <section class="contact-section">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <p>If you have any questions or need further assistance, feel free to contact us. We're here to help!</p>
+            
+            <form action="/contact-us" method="POST" class="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your name">
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required placeholder="Enter your message"></textarea>
+                
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Purple Love. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

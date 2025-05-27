@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome to StayEasy</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background-color: #f9f9f9;
+    }
+
+    header {
+      background-color: #ff5a5f;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20220311/pngtree-bedroom-guest-room-five-star-hotel-image_990205.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .search-box {
+      background: white;
+      max-width: 600px;
+      margin: 20px auto;
+      display: flex;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .search-box input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+    }
+
+    .search-box button {
+      background-color: #ff5a5f;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .listings {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 15px;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>StayEasy</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/host/add-home">Become a Host</a>
+      <a href="/login">Login</a>
+      <a href="/signup">Sign Up</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h1>Find your perfect stay</h1>
+    <p>Book unique homes and experiences all over the world.</p>
+
+    <div class="search-box">
+      <input type="text" placeholder="Search destinations, homes, experiences...">
+      <button>Search</button>
+    </div>
+  </div>
+
+  <section class="listings">
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe91lmkQ2L86B_0m3dPKjzK3lt13pD_BHxwg&s" alt="Home 1">
+      <div class="card-body">
+        <h3>Modern Apartment - New York</h3>
+        <p>$120/night · 4.8 ⭐</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://plus.unsplash.com/premium_photo-1661923725782-f73c990fbddf?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bHV4dXJ5JTIwaG90ZWx8ZW58MHx8MHx8fDA%3D" alt="Home 2">
+      <div class="card-body">
+        <h3>Beach Villa - Bali</h3>
+        <p>$250/night · 4.9 ⭐</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://img.freepik.com/free-photo/type-entertainment-complex-popular-resort-with-pools-water-parks-turkey-with-more-than-5-million-visitors-year-amara-dolce-vita-luxury-hotel-resort-tekirova-kemer_146671-18728.jpg?semt=ais_hybrid&w=740" alt="Home 3">
+      <div class="card-body">
+        <h3>Cozy Cabin - Colorado</h3>
+        <p>$80/night · 4.7 ⭐</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 StayEasy. All rights reserved.
+  </footer>
+
+</body>
+</html>

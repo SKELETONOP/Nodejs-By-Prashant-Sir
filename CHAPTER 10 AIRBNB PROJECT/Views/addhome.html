@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register Your Home</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f7f7f7;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .form-container {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      width: 100%;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #ff5a5f;
+      font-size: 26px;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea,
+    input[type="file"] {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    input[type="submit"] {
+      margin-top: 25px;
+      padding: 14px;
+      background-color: #ff5a5f;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #e0484e;
+    }
+
+    @media (max-width: 600px) {
+      .form-container {
+        margin: 20px;
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>Register Your Home</h1>
+    <form action="/host/add-home" method="POST" >
+      <label for="houseName">House Name</label>
+      <input type="text" name="houseName" id="houseName" placeholder="Ex: Cozy Cottage" required />
+
+      <label for="address">Full Address</label>
+      <input type="text" name="address" id="address" placeholder="Street, Building No, etc." required />
+
+      <label for="city">City</label>
+      <input type="text" name="city" id="city" placeholder="Ex: New York" required />
+
+      <label for="price">Price per Night (₹)</label>
+      <input type="number" name="price" id="price" placeholder="Ex: 1500" required />
+
+      <label for="guests">Max Guests</label>
+      <input type="number" name="guests" id="guests" placeholder="Ex: 4" required />
+
+      <label for="description">Description</label>
+      <textarea name="description" id="description" rows="4" placeholder="Write a short description of your home..." required></textarea>
+
+      <input type="submit" value="Submit Home" />
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,2 @@
+User Input:
+{"username":"dasfasd","email":"PURPLELOVE052@GMAIL.COM","gender":"male"}

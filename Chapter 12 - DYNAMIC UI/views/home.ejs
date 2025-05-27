@@ -1,0 +1,50 @@
+<%- include('partials/head', { activeTab: activeTab || '' }) %>
+</head>
+<body class="bg-gray-100 font-sans m-0 p-0">
+
+  <%- include('partials/nav') %>
+
+  <main class="flex flex-col items-center justify-center pt-10">
+    <% if (!user || user === 'login') { %>
+      <!-- User not logged in -->
+      <div class="max-w-md rounded-md bg-orange-600 shadow-md p-6 mb-8 text-center">
+        <h1 class="text-4xl font-bold text-white mb-4">Welcome to Airbnb</h1>
+        <p class="text-lg text-white mb-4">Please <a href="/login" class="underline font-semibold">login</a> to explore or host homes.</p>
+      </div>
+
+    <% } else if (user === 'logout' && homes.length === 0) { %>
+      <!-- Logged in but no homes -->
+      <div class="max-w-md rounded-md bg-orange-600 shadow-md p-6 mb-8 text-center">
+        <h1 class="text-4xl font-bold text-white mb-4">Hi, <%= userName %> 👋</h1>
+        <p class="text-lg text-white">You don’t have any homes listed yet.</p>
+        <p class="text-white mt-2">Start by adding your first home!</p>
+      </div>
+
+    <% } else if (user === 'logout') { %>
+      <!-- Logged in and has homes -->
+      <div class="max-w-full mx-auto bg-white shadow-md rounded-xl p-6">
+        <h2 class="text-5xl font-semibold mb-4">Hi, <%= userName %> 👋</h2>
+        <p class="text-xl mb-6 text-gray-600">Here are your registered homes:</p>
+
+        <ul class="flex flex-wrap gap-6 justify-center">
+          <% homes.forEach(home => { %>
+  <li class="bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-start text-left text-xl w-full sm:w-[300px] md:w-[350px]">
+    <a href="/homes/<%= home.id %>" class="w-full block">
+      <img src="<%= home.imgUrl || 'https://via.placeholder.com/350x200?text=No+Image' %>" alt="<%= home.houseName %>" class="w-full h-48 object-cover rounded-md mb-4" />
+      <div class="text-2xl font-semibold mb-1">🏠 <%= home.houseName %></div>
+      <div class="text-gray-600 text-lg mb-1">Owner: <span class="font-medium"><%= home.ownerName %></span></div>
+      <div class="text-gray-600 text-lg mb-1">Price per Night: ₹<span class="font-medium"><%= home.priceperNight %></span></div>
+      <div class="text-gray-600 text-lg mb-1">Location: <span class="font-medium"><%= home.location %></span></div>
+      <div class="text-gray-600 text-lg mb-1">Rating: <span class="font-medium"><%= home.rating %> ⭐</span></div>
+      <button href="/homes/<%= home.id %>" class="bg-blue-500 text-white px-4 py-2 rounded-md">View Details</button>
+    </a>
+  </li>
+<% }); %>
+
+        </ul>
+      </div>
+    <% } %>
+  </main>
+
+</body>
+</html>

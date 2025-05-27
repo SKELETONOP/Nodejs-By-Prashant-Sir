@@ -1,0 +1,2 @@
+User Input:
+{"username":"purplelove052","email":"nareshgouttam@gmail.com","gender":"male"}
