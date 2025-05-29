@@ -1,55 +1,41 @@
-// core modules
-const fs = require("fs");
-const path = require("path");
+const { ObjectId } = require("mongodb");
+const { getDB } = require("../utils/databaseUtil");
 
-// local modules
-const rootDir = require("../utils/pathUtil");
-
-// external modules
-const { v4: uuidv4 } = require("uuid");
-
-// data file path
-const favouriteDataPath = path.join(rootDir, "data", "favourite.json");
 
 module.exports = class Favourite {
-  static addToFavourites(homeId, callback) {
-    Favourite.getFavourites((favourites) => {
-      if (favourites.includes(homeId)) {
-        console.log("Already in favourites");
-        callback(); // still call the callback to avoid hanging
-      } else {
-        favourites.push(homeId);
-        console.log("Added to favourites");
-        fs.writeFile(favouriteDataPath, JSON.stringify(favourites), (err) => {
-          if (err) {
-            console.error("Error writing favourites file:", err);
-          }
-          callback();
-        });
-      }
-    });
+  constructor(houseId){
+    this.houseId = houseId;
   }
 
-  static deleteById(delHomeId, callback) {
-    Favourite.getFavourites((homeIds) => {
-      homeIds = homeIds.filter((homeId) => delHomeId !== homeId);
-      fs.writeFile(favouriteDataPath, JSON.stringify(homeIds), callback);
-    });
+
+  save(){
+    const db= getDB();
+    return db.collection('favourites').findOne({ houseId:this.houseId}).then(existingFav=>{
+      if(!existingFav){
+        return db.collection('favourites').insertOne(this);
+      }else{
+        return Promise.resolve();
+      }
+    })
+    
+    
+  }
+ 
+  static getFavourites(){
+
+    const db = getDB();
+    return db.collection('favourites').find().toArray();
+   
+
   }
 
-  static getFavourites(callback) {
-    fs.readFile(favouriteDataPath, (err, data) => {
-      if (err || !data.length) {
-        callback([]);
-      } else {
-        try {
-          const favourites = JSON.parse(data);
-          callback(favourites);
-        } catch (parseErr) {
-          console.error("Error parsing favourites JSON:", parseErr);
-          callback([]);
-        }
-      }
-    });
+  static deleteById(delHomeId) {
+
+    const db = getDB();
+    return db.collection("favourites").deleteOne(
+      {houseId: delHomeId}
+    )
+   
   }
+
 };

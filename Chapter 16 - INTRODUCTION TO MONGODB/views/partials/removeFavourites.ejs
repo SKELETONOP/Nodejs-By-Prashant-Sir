@@ -1,5 +1,5 @@
 <form
-  action="/favourites/delete/<%= home.id %>"
+  action="/favourites/delete/<%= home._id %>"
   method="POST"
   class="flex items-center space-x-4"
 >
@@ -9,5 +9,5 @@
   >
     Remove ❌
   </button>
-  <input type="hidden" name="homeId" value="<%= home.id %>" />
+  <input type="hidden" name="homeId" value="<%= home._id %>" />
 </form>

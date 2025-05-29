@@ -9,7 +9,7 @@
         <div>
           <label for="houseName" class="block text-center text-3xl font-medium text-gray-700"><%=editing ? "Edit" : "Register"%> Your Home</label>
 
-          <input type="hidden" name="id" value="<%= editing ? home.id : ""%>" >
+          <input type="hidden" name="id" value="<%= editing ? home._id : ""%>" >
           
           <input
             type="text"
