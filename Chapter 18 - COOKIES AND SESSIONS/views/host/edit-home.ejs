@@ -1,0 +1,89 @@
+<%- include('../partials/head') %>
+</head>
+<body class="bg-gray-50 font-sans">
+  <%- include('../partials/nav') %>
+
+  <main class="flex justify-center pt-4">
+    <div class="bg-white shadow-xl rounded-lg p-8 w-full max-w-md">
+      <form action="/host/<%= editing ? "edit-home" : "add-home" %>" method="POST" class="space-y-4">
+        <div>
+          <label for="houseName" class="block text-center text-3xl font-medium text-gray-700"><%=editing ? "Edit" : "Register"%> Your Home</label>
+
+          <input type="hidden" name="id" value="<%= editing ? home._id : ""%>" >
+          
+          <input
+            type="text"
+            id="ownerName"
+            name="ownerName"
+            value="<%= editing ? home.ownerName : ''  %>"
+            placeholder="Enter your name"
+            class="mt-4 block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+            required
+          />
+          <input
+            type="text"
+            id="houseName"
+            name="houseName"
+            value="<%= editing ? home.houseName : ''  %>"
+            placeholder="Enter the name of your house"
+            class="mt-2 block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+            required
+          />
+          <input
+            type="text"
+            id="pricePerNight"
+            name="pricePerNight"
+            value="<%= editing ? home.pricePerNight : ''  %>"
+            placeholder="Enter the price per night"
+            class="mt-2 block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+            required
+          />
+          <select name="location" id="location" class="mt-2 block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500" required>
+            <option value="" <%= !editing ? 'selected' : '' %>>Select Location</option>
+            <option value="Jaipur" <%= editing && home.location === 'Jaipur' ? 'selected' : '' %>>Jaipur</option>
+            <option value="Goa" <%= editing && home.location === 'Goa' ? 'selected' : '' %>>Goa</option>
+            <option value="Himalayas" <%= editing && home.location === 'Himalayas' ? 'selected' : '' %>>Himalayas</option>
+          </select>
+
+          <input
+            type="number"
+            id="rating"
+            name="rating"
+            value="<%= editing ? home.rating : ''  %>"
+            placeholder="Enter the rating (1-5)"
+            class="mt-2 block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+            min="1"
+            max="5"
+            step="0.1"
+            required
+          />
+          <input
+            type="text"
+            id="imgUrl"
+            name="imgUrl"
+            value="<%= editing ? home.imgUrl : ''  %>"
+            placeholder="Enter the image URL"
+            class="mt-2 block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+            required
+          />
+          <textarea
+            id="description"
+            name="description"
+            placeholder="Enter a description"
+            class="mt-2 block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+            required
+          ><%= editing ? home.description : ''  %></textarea>
+        </div>
+
+        <div>
+          <input
+            type="submit" value="<%= editing ? 'Update Home' : 'Add Home' %>"
+            class="w-full py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-300 transition duration-300 ease-in-out"
+          >
+        </div>
+      </form>
+    </div>
+  </main>
+  <% include('../partials/footer') %>
+</body>
+</html>
