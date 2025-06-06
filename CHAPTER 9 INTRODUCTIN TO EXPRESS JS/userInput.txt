@@ -1,4 +1,0 @@
-User Input:
-username: nareshgouttam@gmail.com
-email: nareshgouttam@gmail.com
-gender: male
