@@ -14,7 +14,9 @@ exports.getIndex = (req, res) => {
 };
 
 exports.getHome = (req, res) => {
-  Home.find().then((homes) => {
+  const user = req.session.user;
+  if(user){
+     Home.find().then((homes) => {
     res.render("store/home-list", {
       homes: homes,
       pageTitle: "Home",
@@ -23,6 +25,10 @@ exports.getHome = (req, res) => {
       user: req.session.user, // Pass user info to the view
     });
   });
+  }else{
+    res.redirect("/login")
+  }
+ 
 };
 
 exports.getHomeDetails = (req, res) => {
