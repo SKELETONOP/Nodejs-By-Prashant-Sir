@@ -5,7 +5,7 @@ const hostRouter = express.Router();
 // Local Modules
 const hostController = require("../controllers/hostController");
 
-// GET route to render form
+
 hostRouter.get("/add-home", hostController.getAddHome);
 
 // POST route to handle form submission

@@ -8,6 +8,7 @@ exports.getAddHome = (req, res) => {
     currentPage: "Add-home",
     editing: false,
     isLoggedIn: req.session.isLoggedIn,
+    user: req.session.user
   });
 };
 
@@ -27,6 +28,7 @@ exports.getEditHome = (req, res) => {
       currentPage: "Host-home",
       editing: editing,
       isLoggedIn: req.session.isLoggedIn,
+      user: req.session.user
     });
   });
 };
@@ -86,6 +88,7 @@ exports.getHostHome = (req, res) => {
       pageTitle: "Host Homes List",
       activeTab: "Host-homes",
       isLoggedIn: req.session.isLoggedIn,
+      user: req.session.user
     });
   });
 };
